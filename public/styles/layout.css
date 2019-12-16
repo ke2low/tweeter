@@ -3,7 +3,7 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
-html {
+ html {
   box-sizing: border-box;
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -21,6 +21,38 @@ body {
   font-size: 24px;
 }
 
+main {
+  margin: auto;
+  width: 90%;
+  text-align:center; /* probably too general, just apply to the h2 that needs it */
+}
+
 /*
- * Additional CSS can be defined below or in other CSS files, as per instructions
+ * Media Queries 
  */
+
+@media only screen and (min-width: 1024px) {
+  #screensize {
+    display: flex;
+    flex-direction: row;
+  }
+
+  header.app-header {
+    width: 20vw;
+    margin-left: 60px;
+    margin-top: 140px;
+  }
+
+  header img {
+    width: 80%;
+  }
+
+  .new-tweet {
+    margin-top: 150px;
+  }
+
+  .container {
+    width: 70vw;
+  }
+
+}
