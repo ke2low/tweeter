@@ -24,14 +24,43 @@
     <script src="/scripts/composer-char-counter.js"></script>
 
   </head>
-
+  
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter</span>
+      <a href="#">tweeter</a>
+      <div id="maketweet">
+        <a href="#" id="writetweet"> Write a new tweet</a>
+        <i id="icon" class="fas fa-angle-double-down"></i>
+      </div>
     </nav>
-
+    
+    <div id="screensize">
+      <header class="app-header">
+        <img src="/images/profile-hex.png"> 
+        <h2>Kalvin Low</h2>
+      </header>
+    
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+      <main class="container">
+        <section class="new-tweet">
+          <h2>Compose Tweet</h2>
+          <p id="error"></p>
+          <form id="form" name="form">
+            <textarea name="text" id="textarea" placeholder="What are you humming about?"></textarea>
+            <div class = "form-buttons">
+              <input class="button" id="button" type="submit" value="Tweet">
+              <span id="counter" class="counter">140</span>
+            </div>
+          </form>
+        </section>
+        <section class = "tweets-container">
+        </section>
+      </main>
+    </div> 
+
+
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </body>
 </html>
+    
