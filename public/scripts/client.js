@@ -28,3 +28,14 @@ const createTweetElement = function(tweet) {
 </article>`).addClass('tweet');
   return $tweet;
 }
+
+// function that prepends new tweets to the top of the page
+const renderTweets = function(tweets) {
+  if (Array.isArray(tweets))  {
+  tweets.forEach(function(element) {
+    $('.tweets-container').prepend(createTweetElement(element));
+  })
+  } else {
+    $('.tweets-container').prepend(createTweetElement(tweets));
+  }
+}
