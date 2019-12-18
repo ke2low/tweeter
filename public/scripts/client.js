@@ -100,6 +100,9 @@ $(document).ready(function() {
   $('form').hide()
   loadtweets();
 
+  // form submit event handler
+  // with data validation to ensure tweet
+  // length is betweem 0 and 140 characters inclusive
   $('form').submit((event) => {
     event.preventDefault();
     const formData = $("#textarea").serialize()
