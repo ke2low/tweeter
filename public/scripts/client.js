@@ -4,6 +4,48 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+// Fake data taken from initial-tweets.json
+const data = []
+
+// this function converts milliseconds into a string that states how many
+// minutes, days, hours, days, weeks, months or years ago the tweet was created
+const formatTime = function(timeCreated) {
+  var diff = Math.floor((Date.now() - timeCreated) / 1000);
+  var interval = Math.floor(diff / 31536000);
+  if (interval >= 1) {
+    return interval + " years ago";
+  }
+  interval = Math.floor(diff / 2592000);
+  if (interval >= 1) {
+    return interval + " months ago";
+  }
+  interval = Math.floor(diff / 604800);
+  if (interval >= 1) {
+    return interval + "weeks ago";
+  }
+  interval = Math.floor(diff / 86400);
+  if (interval >= 1) {
+    return interval + " days ago";
+  }
+  interval = Math.floor(diff / 3600);
+  if (interval >= 1) {
+    return interval + " hours ago";
+  }
+  interval = Math.floor(diff / 60);
+  if (interval >= 1) {
+    return interval + " minutes ago";
+  }
+  return "<1 minute ago";
+}
+
+// function that converts script injections into 
+// a text format that will not be executed as javascript
+const escape = function (str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 // function that creates new tweets from an object containing 
 // user data and input
 const createTweetElement = function(tweet) {
@@ -39,3 +81,50 @@ const renderTweets = function(tweets) {
     $('.tweets-container').prepend(createTweetElement(tweets));
   }
 }
+
+
+$(document).ready(function() {
+  const loadtweets = function(notFirstLoad) {
+    $.ajax({url: "http://localhost:8080/tweets", method: "GET"})
+    .then((data) => {
+      console.log("data", data)
+      console.log("data last", data[data.length - 1])
+      let dataLast = data[data.length - 1];
+      if (!notFirstLoad)  {
+        renderTweets(data);
+      } else if (notFirstLoad) {
+      renderTweets(dataLast)
+      }
+    })
+  }
+  $('form').hide()
+  loadtweets();
+
+  $('form').submit((event) => {
+    event.preventDefault();
+    const formData = $("#textarea").serialize()
+    if (formData.length > 145 || formData.length <= 5)  {
+      $('#error').replaceWith("<p id='error'>⚠️ Error: Tweets must be between 0 to 140 characters long ⚠️</p>");
+      $('#error').slideDown(300);
+    } else {
+      $('#error').slideUp(300);
+      console.log("form",formData);
+      $.ajax({url: "http://localhost:8080/tweets", method: "POST", data: formData})
+      .then(() => {
+        loadtweets(true)
+        $('#textarea').val('');
+        $('.counter').text(140);
+      })
+    }
+  })
+
+  $('#writetweet').click((event) => {
+    $('form').slideToggle(100);
+    $('textarea').focus();
+  })
+
+  $('#icon').click((event) => {
+    $('form').slideToggle(100);
+    $('textarea').focus();
+  })
+});
