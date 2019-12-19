@@ -124,12 +124,12 @@ $(document).ready(function() {
     }
   });
 
-  $('#writeTweet').click((event) => {
+  $('#writeTweet').click(() => {
     $('form').slideToggle(100);
     $('textarea').focus();
   });
 
-  $('#icon').click((event) => {
+  $('#icon').click(() => {
     $('form').slideToggle(100);
     $('textarea').focus();
   });
