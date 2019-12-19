@@ -1,7 +1,7 @@
 // event handler that counts user input displays
 // how many remaining characters are left to be used
 $(document).ready(function() {
-  $('.new-tweet form textarea').on('input', function() {
+  $('.newTweet form textarea').on('input', function() {
     let maxLength = 140;
     let currentLength = $(this).val().length;
     let count = maxLength - currentLength;
