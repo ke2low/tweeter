@@ -7,7 +7,7 @@
 // Fake data taken from initial-tweets.json
 const data = [];
 
-// this function converts milliseconds into a string that states how many
+// function that converts milliseconds into a string that states how many
 // minutes, days, hours, days, weeks, months or years ago the tweet was created
 const formatTime = function(timeCreated) {
   let diff = Math.floor((Date.now() - timeCreated) / 1000);
@@ -71,7 +71,8 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
-// function that prepends new tweets to the top of the page
+// function that displays all tweets on initial page load and
+// and prepends new tweets onto the page after form submission
 const renderTweets = function(tweets) {
   if (Array.isArray(tweets))  {
     tweets.forEach(function(element) {
@@ -84,6 +85,7 @@ const renderTweets = function(tweets) {
 
 
 $(document).ready(function() {
+
   const loadtweets = function(notFirstLoad) {
     $.ajax({url: "http://localhost:8080/tweets", method: "GET"})
       .then((data) => {
@@ -97,6 +99,7 @@ $(document).ready(function() {
         }
       });
   };
+
   $('form').hide();
   loadtweets();
 
@@ -121,7 +124,7 @@ $(document).ready(function() {
     }
   });
 
-  $('#writetweet').click((event) => {
+  $('#writeTweet').click((event) => {
     $('form').slideToggle(100);
     $('textarea').focus();
   });

@@ -32,7 +32,7 @@ main {
  */
 
 @media only screen and (min-width: 1024px) {
-  #screensize {
+  #responsiveFlexContainer {
     display: flex;
     flex-direction: row;
   }
@@ -47,7 +47,7 @@ main {
     width: 80%;
   }
 
-  .new-tweet {
+  .newTweet {
     margin-top: 150px;
   }
 
