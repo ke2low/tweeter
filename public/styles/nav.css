@@ -1,3 +1,4 @@
+
 /*
  * CSS Styling for navigation bar
  */
@@ -21,4 +22,44 @@ nav a {
 
 nav a:hover {
   color: rgba(255, 255, 255, 0.884);
+}
+
+#maketweet {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#icon {
+  color: red;
+  animation: float 3s ease-in-out infinite;
+}
+
+#icon:hover {
+  color:rgba(255, 0, 0, 0.651);
+  cursor: pointer;
+}
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(6px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+
+/*
+ * Media Queries 
+ */
+@media only screen and (max-width: 1024px) {
+
+  nav {
+    background: orange url("/images/asfalt-dark.png");  
+  }
+
 }
