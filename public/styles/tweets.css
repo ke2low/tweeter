@@ -3,7 +3,7 @@
  * CSS Styling for tweet elements
  */
 
- article.tweet {
+article.tweet {
   width: 95%;
   margin: auto;
   margin-bottom: 50px;
@@ -84,4 +84,11 @@ article.tweet .tweet-footer .icons i {
 
 article.tweet .tweet-content {
   word-wrap: break-word;
+}
+
+@media only screen and (max-width: 1024px) {
+  article.tweet .tweet-header .handle {
+    opacity: 100%;
+    color: #4056A1;
+  }
 }

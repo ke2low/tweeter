@@ -2,7 +2,7 @@
 /*
  * CSS Styling for navigation bar
  */
- nav {
+nav {
   color: #FFFFFF;
   background: #4056A1;
   padding: 1em;
@@ -51,7 +51,6 @@ nav a:hover {
 		transform: translatey(0px);
 	}
 }
-
 
 /*
  * Media Queries 

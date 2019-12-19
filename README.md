@@ -10,7 +10,6 @@ This repository is the starter code for the project: Students will fork and clon
 !["screenshot tablet and mobile layout"](https://github.com/ke2low/tweeter/blob/master/docs/Mobile%20%26%20Tablet%20Layout.png)
 
 
-
 ## Dependencies
 
 - Express

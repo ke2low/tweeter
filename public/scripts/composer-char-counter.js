@@ -1,4 +1,4 @@
-// counts amount of text inputted into form and displays
+// event handler that counts user input displays
 // how many remaining characters are left to be used
 $(document).ready(function() {
   $('.new-tweet form textarea').on('input', function() {

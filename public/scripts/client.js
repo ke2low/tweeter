@@ -71,8 +71,7 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
-// function that displays all tweets on initial page load and
-// and prepends new tweets onto the page after form submission
+// function that prepends input onto the page
 const renderTweets = function(tweets) {
   if (Array.isArray(tweets))  {
     tweets.forEach(function(element) {
@@ -83,14 +82,12 @@ const renderTweets = function(tweets) {
   }
 };
 
-
 $(document).ready(function() {
-
+  // function that sends a GET request and displays return data
+  // as tweets on page
   const loadtweets = function(notFirstLoad) {
     $.ajax({url: "http://localhost:8080/tweets", method: "GET"})
       .then((data) => {
-        console.log("data", data);
-        console.log("data last", data[data.length - 1]);
         let dataLast = data[data.length - 1];
         if (!notFirstLoad)  {
           renderTweets(data);
@@ -103,8 +100,7 @@ $(document).ready(function() {
   $('form').hide();
   loadtweets();
 
-  // form submit event handler
-  // with data validation to ensure tweet
+  // form submit event handler with data validation to ensure tweet
   // length is betweem 0 and 140 characters inclusive
   $('form').submit((event) => {
     event.preventDefault();
@@ -124,6 +120,7 @@ $(document).ready(function() {
     }
   });
 
+  // event handler that opens and closes form text area on click
   $('#writeTweet').click(() => {
     $('form').slideToggle(100);
     $('textarea').focus();
