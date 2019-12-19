@@ -7,7 +7,7 @@ This repository is the starter code for the project: Students will fork and clon
 ## Final Product
 
 !["screenshot desktop layout"](https://github.com/ke2low/tweeter/blob/master/docs/Desktop%20Layout.png)
-!["screenshot tablet and mobile layout"](https://github.com/ke2low/tweeter/blob/master/docs/Tablet%20%26%20Mobile%20Layout.png)
+!["screenshot tablet and mobile layout"](https://github.com/ke2low/tweeter/blob/master/docs/Mobile%20%26%20Tablet%20Layout.png)
 
 
 
